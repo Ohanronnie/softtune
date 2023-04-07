@@ -1,0 +1,11 @@
+import express from 'express';
+import Register from '../controllers/register.js';
+import cors from 'cors';
+const router = express.Router();
+router.use(cors());
+router.post('/login', Register.login);
+router.post('/signup',Register.signup);
+router.all('/verify/:code',Register.verify);
+router.post('/userList',Register.userList);
+router.post('/mailList',Register.mailList);
+export default router;
