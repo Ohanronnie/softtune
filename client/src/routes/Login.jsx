@@ -1,11 +1,15 @@
 // eslint-disable-next-line
 import { useState, useEffect } from "react";
-//import axios from "axios";
+import { axiosInstance } from "../utils/axios.js";
 import { useNavigate } from "react-router-dom";
 import "../assets/css/output.css";
+/*const axiosInstance = axios.create({
+    baseURL: "http://localhost:3001",
+    withCredentials: true
+  });*/
 //axios.defaults.withCredentials = true;
 document.body.style.backgroundColor = "#FFFFFF";
-function Login({axios}) {
+function Login() {
   // const [to,setTo] = useState('/register/login')
   const [value, setValue] = useState({});
   const [error, setError] = useState(null);
@@ -17,7 +21,7 @@ function Login({axios}) {
   }
   function handleSubmit(e) {
     e.preventDefault();
-    axios.post("/register/login",value).then((response) => {
+    axiosInstance.post("/register/login", value).then((response) => {
       switch (response.data.message) {
         case "Authenticated":
           navigate('/');
@@ -26,7 +30,7 @@ function Login({axios}) {
           setError(response.data.message);
           break;
       }
-    }).catch(e => setError(e));
+    }).catch(e => {alert(JSON.stringify(e)); setError(e.message)});
   }
   // eslint-disable-next-line
   return (

@@ -27,11 +27,11 @@ body {
   color: #4f4f4f;
 }
 .content input,
-.content button {
+.content button, .content textarea{
   width: 100%;
   margin: 0 1vw;
   margin-top: 0.5vh;
-  height: 5vh;
+  height: 4.5rem;
   border: none;
   border-radius: 15px;
   background-color: #323232;
@@ -68,9 +68,133 @@ body {
   padding-left: 0.8rem;
   font-size: 0.99rem;
 }
+/*copy start*/
+.content .label{
+  font-size: 1rem;
+  text-align: center;
+  color: #4f4f4f;
+  margin-bottom: .7rem;
+}
+.content .div-flex{
+  display: flex;
+  flex-flow: row wrap;
+  margin-bottom: 1rem
+}
+.content .div-flex div{
+  width: 8rem;
+  height: 11rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column;
+  background-color: rgba(113, 109, 109, 0.3);
+  border-radius: .5rem;
+}
+.content .div-flex div img{
+  width: 5rem;
+  margin-bottom: 1rem;
+}
+.content .div-flex div:not(:last-child){
+  margin-right: 1.3rem;
+}
+.content .div-flex div:first-child{
+  margin-left: .5rem;
+}
+.content .div-flex div:hover{
+  border: 2px solid darkorange;
+}
+.content .join-input{
+  display: flex;
+  flex-flow: row wrap;
+}
+.content input,.content textarea{
+  height: 4.5rem;
+  border-radius: .5rem;
+}
+.content input::placeholder{
+  padding-left: 1rem;
+  text-transform: capitalize;
+}
+.content .join-input div:first-child{
+  margin-right: 1rem;
+}
+.content .join-input div{
+  width: 48%;
+  display: flex;
+  flex-flow: column;
+}
+.content .upload-cover {
+  display: flex;
+  flex-flow: row wrap;
+  margin-bottom: 0
+}
+.content .upload-cover .cover-box{
+  width: 30%;
+  margin-top: 1rem;
+  height: 12.5rem;
+  border: 1px solid darkorange;
+  border-radius: .4rem;
+  display: flex;
+  justify-content: center;
+  flex-flow: column;
+  align-items: center;
+  margin-right: 1rem;
+}
+.content .upload-cover .cover-box input{
+  display: none;
+}
+.content .upload-cover .cover-box img{
+  width: 100%;
+  height: 100%;
+}
+.content .upload-cover .cover-box .img{
+  width: 3rem;
+  height: 3rem;
+  margin: 0;
+}
+.content .upload-cover .cover-box label{
+  margin-left: 0;
+  font-size: .7rem;
+}
+.content .upload-cover .input-box{
+  display: flex;
+  flex-flow: column;
+  width: 66%;
+}
+.content .upload-cover .input-box div select,
+.content .upload-cover .input-box div input{
+  width: 100%;
+  height: 5rem;
+  border-radius: .5rem;
+  margin-left: .7rem;
+  margin-top: .2rem;
+  background-color: #4f4f4f;
+  color: white;
+}
+.content .descr-lyrics {
+  display: flex;
+  flex-flow: row wrap;
+  margin-top: 0;
+}
+.content .descr-lyrics div{
+  display: flex;
+  flex-flow: column;
+  width: 48%;
+}
+.content .descr-lyrics div:first-child{
+  margin-right: 1rem
+}
+.content .descr-lyrics div label{
+  margin-top: .7rem
+}
+.content .descr-lyrics div textarea{
+  height: 10rem;
+}
+/* Copy end */
 @media only screen and (max-width: 740px) {
   .content input,
-  .content button {
+  .content button,
+  .content .upload-cover .input-box div select{
     height: 2rem;
     border-radius: 0.5rem;
     font-size: 0.5rem;
@@ -83,6 +207,12 @@ body {
   .div .main {
     margin-top: 22vh;
   }
+  .content {
+    margin-left: .35rem;
+  }
+  .content form {
+    margin-left: .6rem;
+  }
   .content label {
     font-size: 0.6rem;
   }
@@ -92,9 +222,71 @@ body {
     font-size: 0.2rem;
     padding-left: 0px;
   }
-  .content .name {
-    /*  margin-bottom: 0;*/
+  .content .div-flex div{
+    width: 5rem;
+    border-radius: .2rem;
+    font-size: .7rem;
+    height: 10rem;
   }
-  .conteng .bio {
+  .content .div-flex div img {
+    width: 3rem;
+    margin-bottom: 1rem;
+  }
+  .content .div-flex div:not(:last-child){
+    margin-right: 1rem;
+  }
+  .content .join-input div {
+    width: 46%;
+  }
+  .content .join-input div:first-child{
+    margin-right: .4rem;
+  }
+  .content input{
+    border-radius: .2rem;
+  }
+  .content input::placeholder{
+    padding-left: .3rem;
+  }
+  .content .upload-cover{
+
+  }
+  .content .upload-cover .cover-box{
+    width: 27%;
+    margin-right: .5rem;
+    height: 7rem;
+  }
+  .content .upload-cover .cover-box .img{
+    height: 1.7rem;
+  }
+  .content .upload-cover .cover-box label{
+    font-size: .3rem
+  }
+  .content .upload-cover .input-box{
+    width: 62%;
+  }
+
+  .content .upload-cover .input-box div select,
+  .content .upload-cover .input-box div input{
+    width: 100%;
+    height: 2rem;
+    border-radius: .2rem;
+    margin-left: .2rem;
+  }
+  .content .descr-lyrics div{
+    width: 45%;
+  }
+  .content .descr-lyrics div:first-child{
+    margin-right: .5rem;
+  }
+  .content .descr-lyrics div textarea{
+    border-radius: .2rem;
+    font-size: .6rem;
+  }
+  .content .descr-lyrics div textarea::placeholder{
+    padding-left: .4rem;
+    padding-top: .4rem;
+    font-family: normal;
+    font-size: .6rem;
+    text-transform: capitalize;
   }
 }

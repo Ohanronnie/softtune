@@ -1,7 +1,7 @@
 import nodemailer from "nodejs-nodemailer-outlook";
 import dotenv from "dotenv";
 dotenv.config();
-console.log(process.env)
+console.log(process.env);
 const send = (to, html, subject) => {
   return new Promise((resolve, reject) => {
     nodemailer.sendEmail({
@@ -19,4 +19,4 @@ const send = (to, html, subject) => {
     });
   });
 };
-export default send
+export default send;

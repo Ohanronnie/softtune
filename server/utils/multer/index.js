@@ -1,0 +1,20 @@
+import multer from 'multer';
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    let destination = "";
+    if(file.mimetype.startsWith('image/')){
+      destination = "../../assets/images/"
+    } else if(file.mimetype.startsWith('audio/')){
+      destination = "../../assets/musics/"
+    }
+    cb(null, destination)
+  },
+  filename: function (req, file, cb) {
+    const date = Date.now();
+    const mime = file.mimetype.split('/');
+    const location = `SOFTUNE_${mime[0] === 'image' ? 'IMG' : 'AUD'}_${date}.${mime[1].toLowerCase()}`;
+
+    cb(null, file.fieldname + '-' + Date.now())
+  }
+})
+const upload = multer({ storage: storage })

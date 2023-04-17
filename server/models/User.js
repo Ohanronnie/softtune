@@ -1,81 +1,78 @@
-import mongoose from 'mongoose';
-import dotenv from 'dotenv';
-import bcrypt from 'bcryptjs';
-dotenv.config()
-mongoose.connect(
-  process.env.MONGOURL,
-  { useUnifiedTopology: true, useNewUrlParser: true }
-);
+import mongoose from "mongoose";
+import dotenv from "dotenv";
+import bcrypt from "bcryptjs";
+dotenv.config();
 const UserSchema = new mongoose.Schema({
   firstName: {
     type: String,
-    required: true
+    required: true,
   },
   lastName: {
     type: String,
-    required: true
+    required: true,
   },
   status: {
     type: String,
-    enum: ["Active","Pending"],
-    default: "Pending"
+    enum: ["Active", "Pending"],
+    default: "Pending",
   },
   confirmCode: {
     type: String,
   },
   createdAt: {
     type: Date,
-    default: Date.now()
+    default: Date.now(),
   },
   username: {
-    type: String
+    type: String,
   },
   mail: {
     type: String,
-    required: true
+    required: true,
   },
   password: {
     type: String,
-    required: true
+    required: true,
   },
   userdata: {
     description: {
       type: String,
-      default: ""
+      default: "",
     },
     coverPath: {
       type: String,
-      default: "/images/cover.jpg"
+      default: "/images/cover.jpg",
     },
     subscriber: {
       type: Number,
-      default: 0
+      default: 0,
     },
     subscribing: {
       type: Number,
-      default: 0
+      default: 0,
     },
     musicAdded: {
       type: Number,
-      default: 0
+      default: 0,
     },
     isVerified: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
-  lastPlayed: [{
-    type: String,
-    default: ""
-  }]
+  lastPlayed: [
+    {
+      type: String,
+      default: "",
+    },
+  ],
 });
-UserSchema.pre('save',function(next){
-  if(this.status === "Pending"){
+UserSchema.pre("save", function (next) {
+  if (this.isNew || this.isModified("password")) {
     console.log(this);
-    this.password = bcrypt.hashSync(this.password,10);
+    this.password = bcrypt.hashSync(this.password, 10);
   }
-  next()
-  
+  next();
 });
-const User = mongoose.model('User',UserSchema);
-export default User
+const User = mongoose.model("User", UserSchema);
+export default User;

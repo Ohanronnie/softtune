@@ -10,9 +10,6 @@ function Upload() {
     selection: null,
     display: true,
   });
-  const [albumState, setAlbumState] = useState({
-    step: [],
-  });
   const [songState, setSongState] = useState({});
   const [file, setFile] = useState(null);
   const [dataUrl, setDataUrl] = useState(null);
@@ -25,7 +22,6 @@ function Upload() {
   const features = useRef(null);
   const music = useRef(null);
   const coverArt = useRef(null);
-
   useEffect(
     function () {
       if (file) {
@@ -103,7 +99,7 @@ function Upload() {
           </div>
           <div
             onClick={() =>
-              setSelect({ selection: "albu", display: !select.display })
+              setSelect({ selection: "album", display: !select.display })
             }
           >
             <img src={album} />
@@ -116,171 +112,6 @@ function Upload() {
           >
             <img src={podcast} />
             <span>Podcasts</span>
-          </div>
-        </div>
-      </>
-    );
-  };
-  const HandleAlbum = () => {
-    return (
-      <>
-        <div className="join-input">
-          <div>
-            <label htmlFor="name">Title&nbsp;*</label>
-            <input
-              type="text"
-              name="title"
-              placeholder="Song's title"
-              value={songState.title || ""}
-              onChange={handleChange}
-              ref={title}
-              required={true}
-            />
-          </div>
-          <div>
-            <label htmlFor="artist">Artist&nbsp;*</label>
-            <input
-              onChange={handleChange}
-              ref={artist}
-              type="text"
-              name="artist"
-              placeholder="Artist"
-              value={songState.artist || ""}
-              required
-            />
-          </div>
-        </div>
-        <button type="submit">Next</button>
-      </>
-    );
-  };
-  const AlbumSong = () => {
-    return (
-      <>
-        <input
-          type="file"
-          ref={music}
-          name="music"
-          placeholder="name of the music"
-          accept="audio/*"
-          required={false}
-        />
-      </>
-    );
-  };
-  const albumDetails = () => {
-    return (
-      <>
-        <div className="join-input">
-          <div>
-            <label htmlFor="name">Title&nbsp;*</label>
-            <input
-              type="text"
-              name="title"
-              placeholder="Song's title"
-              value={songState.title || ""}
-              onChange={handleChange}
-              ref={title}
-              required={true}
-            />
-          </div>
-          <div>
-            <label htmlFor="artist">Artist&nbsp;*</label>
-            <input
-              onChange={handleChange}
-              ref={artist}
-              type="text"
-              name="artist"
-              placeholder="Artist"
-              value={songState.artist || ""}
-              required
-            />
-          </div>
-        </div>
-        <div className="upload-cover">
-          <div className="cover-box coverImg">
-            <img src={plus} className="img" alt="plus sign" />
-            <label htmlFor="cover-img">Click me to select an art</label>
-            <input
-              type="file"
-              onChange={setReader}
-              id="cover-img"
-              accept="image/*"
-              name="cover-img"
-            />
-          </div>
-          <div className="input-box">
-            <div>
-              <label htmlFor="name">Genre&nbsp; *</label>
-              <select
-                name="genre"
-                ref={genre}
-                value={songState.genre || "selected"}
-                onChange={handleChange}
-              >
-                <option value="selected" disabled={true}>
-                  -- Genre --
-                </option>
-                <option value="hiphop">Hip hop/Rap</option>
-                <option value="soul">R&B/Soul</option>
-                <option value="dance">Electronic/Dance</option>
-                <option value="pop">Pop</option>
-                <option value="reggae">Reggae/Dancehall</option>
-                <option value="latin">Latin</option>
-                <option value="afrobeat">Afrobeat</option>
-                <option value="country">Country</option>
-                <option value="rock">Rock</option>
-                <option value="jazz">Jazz</option>
-                <option value="blues">Blues</option>
-                <option value="gospel">Gospel/Christian</option>
-                <option value="classical">Classical</option>
-                <option value="world">World</option>
-                <option value="folk">Folk/Acoustics</option>
-                <option value="soundtrack">Soundtracks</option>
-                <option value="podcast">Podcasts</option>
-                <option value="kpop">K-pop</option>
-                <option value="instruments">Instrumentals</option>
-              </select>
-            </div>
-            <div>
-              <label htmlFor="artist">
-                Features&nbsp;<small>Use comma to seperate artists</small>
-              </label>
-              <input
-                onChange={handleChange}
-                ref={features}
-                type="text"
-                name="features"
-                placeholder="Features"
-                value={songState.features || ""}
-                required
-              />
-            </div>
-          </div>
-        </div>
-        <div className="descr-lyrics">
-          <div>
-            <label htmlFor="description">Description&nbsp;*</label>
-            <textarea
-              onChange={handleChange}
-              ref={description}
-              type="text"
-              name="description"
-              placeholder="Description "
-              required
-              value={songState.description || ""}
-            />
-          </div>
-          <div>
-            <label htmlFor="name">Lyrics</label>
-            <textarea
-              ref={lyrics}
-              onChange={handleChange}
-              type="text"
-              name="lyrics"
-              placeholder="lyrics optional"
-              value={songState.lyrics || ""}
-            />
           </div>
         </div>
       </>
@@ -435,7 +266,6 @@ function Upload() {
         <hr />
         {select.display && <UploadType />}
         {select.selection === "song" && FormSong()}
-        {select.selection === "album" && HandleAlbum()}
       </div>
     </>
   );
