@@ -1,51 +1,51 @@
-import mongoose from 'mongoose';
+import mongoose from "mongoose";
 const musicSchema = new mongoose.Schema({
   user: {
     type: String,
-    required: true
+    required: true,
   },
   musicLocation: {
     type: String,
-    required: true
+    required: true,
   },
   coverLocation: {
     type: String,
-    required: true
+    required: true,
   },
   artist: {
     type: String,
-    required: true
+    required: true,
   },
   title: {
     type: String,
-    required: true
+    required: true,
   },
   album: {
     type: String,
-    default: ""
+    default: "",
   },
   description: {
     type: String,
-    required: true
+    required: true,
   },
   lyrics: {
     type: String,
-    default: ""
+    default: "",
   },
   details: {
     streams: {
       type: String,
-      default: 0
+      default: 0,
     },
     rating: {
       type: String,
-      default: 0
+      default: 0,
     },
     popular: {
       type: String,
-      default: 0
-    }
-  }
+      default: 0,
+    },
+  },
 });
-const Song = mongoose.model('Song',musicSchema);
-export default Song
+const Song = mongoose.model("Song", musicSchema);
+export default Song;

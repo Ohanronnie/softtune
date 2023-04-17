@@ -21,16 +21,22 @@ function Login() {
   }
   function handleSubmit(e) {
     e.preventDefault();
-    axiosInstance.post("/register/login", value).then((response) => {
-      switch (response.data.message) {
-        case "Authenticated":
-          navigate('/');
-          break;
-        default:
-          setError(response.data.message);
-          break;
-      }
-    }).catch(e => {alert(JSON.stringify(e)); setError(e.message)});
+    axiosInstance
+      .post("/register/login", value)
+      .then((response) => {
+        switch (response.data.message) {
+          case "Authenticated":
+            navigate("/");
+            break;
+          default:
+            setError(response.data.message);
+            break;
+        }
+      })
+      .catch((e) => {
+        alert(JSON.stringify(e));
+        setError(e.message);
+      });
   }
   // eslint-disable-next-line
   return (

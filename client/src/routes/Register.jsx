@@ -15,7 +15,9 @@ const MyTextInput = ({ label, ...props }) => {
         {...field}
         {...props}
         style={{ borderWidth: "1.5px" }}
-        className={`w-full mt-1 border-great-blue-1 p-3 text-slate-500 border-2 border-solid drop-shadow-lg focus:outline-none rounded-2xl h-10 mb-5 ${props.class ? 'mb-4' : 'mb-0'} text-sm `}
+        className={`w-full mt-1 border-great-blue-1 p-3 text-slate-500 border-2 border-solid drop-shadow-lg focus:outline-none rounded-2xl h-10 mb-5 ${
+          props.class ? "mb-4" : "mb-0"
+        } text-sm `}
       />
       {meta.touched && meta.error ? (
         <p className="text-m ml-1 font-base text-red-600 w-full">
@@ -25,7 +27,7 @@ const MyTextInput = ({ label, ...props }) => {
     </>
   );
 };
-const Register = ({axios}) => {
+const Register = ({ axios }) => {
   const [mailList, setMailList] = useState([]);
   const [userList, setUserlist] = useState([]);
   // const [to,setTo] = useState('/register/signup');
@@ -38,16 +40,21 @@ const Register = ({axios}) => {
    let response = await result.json();*/
   //response.push(null);
   useEffect(function () {
-     (async function(){
-        try{
-          const tmpMail = await fetch('http://localhost:3001/register/mailList',{method: "POST"});
-          const tmpUser = await fetch('http://localhost:3001/register/userList',{method: "POST"});
+    (async function () {
+      try {
+        const tmpMail = await fetch("http://localhost:3001/register/mailList", {
+          method: "POST",
+        });
+        const tmpUser = await fetch("http://localhost:3001/register/userList", {
+          method: "POST",
+        });
         setMailList(await tmpMail.json());
         setUserlist(await tmpUser.json());
-       // alert(tmpUser.data)
-        }
-        catch(err){alert(err.stack)}
-     })()
+        // alert(tmpUser.data)
+      } catch (err) {
+        alert(err.stack);
+      }
+    })();
     /*    axios.post('http://localhost:3001/register/mailList',{key: Math.random()}).then(e => setMailList(e.data)).catch(e => alert(e))*/
   }, []);
   return (
@@ -62,7 +69,7 @@ const Register = ({axios}) => {
           lastName: "",
           mail: "",
           username: "",
-          password: "", 
+          password: "",
         }}
         validationSchema={Yup.object({
           firstName: Yup.string()
@@ -83,8 +90,11 @@ const Register = ({axios}) => {
             .required("Required"),
         })}
         onSubmit={(values, { setSubmitting }, ...rest) => {
-//          axios({ url: "/register/signup", method: "post", data: values }).then(e => {alert(e.data);navigate("/register/login")}).catch(e => alert("error occured"+e))
-          axios.post("/register/signup",values).then(e => alert(`${e.data.message}`)).catch(e => alert(e));
+          //          axios({ url: "/register/signup", method: "post", data: values }).then(e => {alert(e.data);navigate("/register/login")}).catch(e => alert("error occured"+e))
+          axios
+            .post("/register/signup", values)
+            .then((e) => alert(`${e.data.message}`))
+            .catch((e) => alert(e));
           /*          setTimeout(() => {
 //            alert(JSON.stringify(values, null, 2));
             setSubmitting(false);

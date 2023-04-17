@@ -27,7 +27,8 @@ body {
   color: #4f4f4f;
 }
 .content input,
-.content button, .content textarea{
+.content button,
+.content textarea {
   width: 100%;
   margin: 0 1vw;
   margin-top: 0.5vh;
@@ -69,18 +70,18 @@ body {
   font-size: 0.99rem;
 }
 /*copy start*/
-.content .label{
+.content .label {
   font-size: 1rem;
   text-align: center;
   color: #4f4f4f;
-  margin-bottom: .7rem;
+  margin-bottom: 0.7rem;
 }
-.content .div-flex{
+.content .div-flex {
   display: flex;
   flex-flow: row wrap;
-  margin-bottom: 1rem
+  margin-bottom: 1rem;
 }
-.content .div-flex div{
+.content .div-flex div {
   width: 8rem;
   height: 11rem;
   display: flex;
@@ -88,37 +89,38 @@ body {
   align-items: center;
   flex-flow: column;
   background-color: rgba(113, 109, 109, 0.3);
-  border-radius: .5rem;
+  border-radius: 0.5rem;
 }
-.content .div-flex div img{
+.content .div-flex div img {
   width: 5rem;
   margin-bottom: 1rem;
 }
-.content .div-flex div:not(:last-child){
+.content .div-flex div:not(:last-child) {
   margin-right: 1.3rem;
 }
-.content .div-flex div:first-child{
-  margin-left: .5rem;
+.content .div-flex div:first-child {
+  margin-left: 0.5rem;
 }
-.content .div-flex div:hover{
+.content .div-flex div:hover {
   border: 2px solid darkorange;
 }
-.content .join-input{
+.content .join-input {
   display: flex;
   flex-flow: row wrap;
 }
-.content input,.content textarea{
+.content input,
+.content textarea {
   height: 4.5rem;
-  border-radius: .5rem;
+  border-radius: 0.5rem;
 }
-.content input::placeholder{
+.content input::placeholder {
   padding-left: 1rem;
   text-transform: capitalize;
 }
-.content .join-input div:first-child{
+.content .join-input div:first-child {
   margin-right: 1rem;
 }
-.content .join-input div{
+.content .join-input div {
   width: 48%;
   display: flex;
   flex-flow: column;
@@ -126,48 +128,48 @@ body {
 .content .upload-cover {
   display: flex;
   flex-flow: row wrap;
-  margin-bottom: 0
+  margin-bottom: 0;
 }
-.content .upload-cover .cover-box{
+.content .upload-cover .cover-box {
   width: 30%;
   margin-top: 1rem;
   height: 12.5rem;
   border: 1px solid darkorange;
-  border-radius: .4rem;
+  border-radius: 0.4rem;
   display: flex;
   justify-content: center;
   flex-flow: column;
   align-items: center;
   margin-right: 1rem;
 }
-.content .upload-cover .cover-box input{
+.content .upload-cover .cover-box input {
   display: none;
 }
-.content .upload-cover .cover-box img{
+.content .upload-cover .cover-box img {
   width: 100%;
   height: 100%;
 }
-.content .upload-cover .cover-box .img{
+.content .upload-cover .cover-box .img {
   width: 3rem;
   height: 3rem;
   margin: 0;
 }
-.content .upload-cover .cover-box label{
+.content .upload-cover .cover-box label {
   margin-left: 0;
-  font-size: .7rem;
+  font-size: 0.7rem;
 }
-.content .upload-cover .input-box{
+.content .upload-cover .input-box {
   display: flex;
   flex-flow: column;
   width: 66%;
 }
 .content .upload-cover .input-box div select,
-.content .upload-cover .input-box div input{
+.content .upload-cover .input-box div input {
   width: 100%;
   height: 5rem;
-  border-radius: .5rem;
-  margin-left: .7rem;
-  margin-top: .2rem;
+  border-radius: 0.5rem;
+  margin-left: 0.7rem;
+  margin-top: 0.2rem;
   background-color: #4f4f4f;
   color: white;
 }
@@ -176,30 +178,30 @@ body {
   flex-flow: row wrap;
   margin-top: 0;
 }
-.content .descr-lyrics div{
+.content .descr-lyrics div {
   display: flex;
   flex-flow: column;
   width: 48%;
 }
-.content .descr-lyrics div:first-child{
-  margin-right: 1rem
+.content .descr-lyrics div:first-child {
+  margin-right: 1rem;
 }
-.content .descr-lyrics div label{
-  margin-top: .7rem
+.content .descr-lyrics div label {
+  margin-top: 0.7rem;
 }
-.content .descr-lyrics div textarea{
+.content .descr-lyrics div textarea {
   height: 10rem;
 }
 /* Copy end */
 @media only screen and (max-width: 740px) {
   .content input,
   .content button,
-  .content .upload-cover .input-box div select{
+  .content .upload-cover .input-box div select {
     height: 2rem;
     border-radius: 0.5rem;
     font-size: 0.5rem;
     width: 96%;
-    margin-bottom: .4rem;
+    margin-bottom: 0.4rem;
   }
   .content h1 {
     font-size: 1rem;
@@ -208,10 +210,10 @@ body {
     margin-top: 22vh;
   }
   .content {
-    margin-left: .35rem;
+    margin-left: 0.35rem;
   }
   .content form {
-    margin-left: .6rem;
+    margin-left: 0.6rem;
   }
   .content label {
     font-size: 0.6rem;
@@ -222,71 +224,70 @@ body {
     font-size: 0.2rem;
     padding-left: 0px;
   }
-  .content .div-flex div{
+  .content .div-flex div {
     width: 5rem;
-    border-radius: .2rem;
-    font-size: .7rem;
+    border-radius: 0.2rem;
+    font-size: 0.7rem;
     height: 10rem;
   }
   .content .div-flex div img {
     width: 3rem;
     margin-bottom: 1rem;
   }
-  .content .div-flex div:not(:last-child){
+  .content .div-flex div:not(:last-child) {
     margin-right: 1rem;
   }
   .content .join-input div {
     width: 46%;
   }
-  .content .join-input div:first-child{
-    margin-right: .4rem;
+  .content .join-input div:first-child {
+    margin-right: 0.4rem;
   }
-  .content input{
-    border-radius: .2rem;
+  .content input {
+    border-radius: 0.2rem;
   }
-  .content input::placeholder{
-    padding-left: .3rem;
+  .content input::placeholder {
+    padding-left: 0.3rem;
   }
-  .content .upload-cover{
-
+  .content .upload-cover {
   }
-  .content .upload-cover .cover-box{
+  .content .upload-cover .cover-box {
     width: 27%;
-    margin-right: .5rem;
+    margin-right: 0.5rem;
     height: 7rem;
   }
-  .content .upload-cover .cover-box .img{
+  .content .upload-cover .cover-box .img {
     height: 1.7rem;
   }
-  .content .upload-cover .cover-box label{
-    font-size: .3rem
+  .content .upload-cover .cover-box label {
+    font-size: 0.3rem;
   }
-  .content .upload-cover .input-box{
+  .content .upload-cover .input-box {
     width: 62%;
   }
 
   .content .upload-cover .input-box div select,
-  .content .upload-cover .input-box div input{
+  .content .upload-cover .input-box div input {
     width: 100%;
     height: 2rem;
-    border-radius: .2rem;
-    margin-left: .2rem;
+    border-radius: 0.2rem;
+    margin-left: 0.2rem;
   }
-  .content .descr-lyrics div{
+  .content .descr-lyrics div {
     width: 45%;
   }
-  .content .descr-lyrics div:first-child{
-    margin-right: .5rem;
+  .content .descr-lyrics div:first-child {
+    margin-right: 0.5rem;
   }
-  .content .descr-lyrics div textarea{
-    border-radius: .2rem;
-    font-size: .6rem;
+  .content .descr-lyrics div textarea {
+    border-radius: 0.2rem;
+    font-size: 0.6rem;
   }
-  .content .descr-lyrics div textarea::placeholder{
-    padding-left: .4rem;
-    padding-top: .4rem;
+  .content .descr-lyrics div textarea::placeholder {
+    padding-left: 0.4rem;
+    padding-top: 0.4rem;
     font-family: normal;
-    font-size: .6rem;
+    font-size: 0.6rem;
     text-transform: capitalize;
   }
 }

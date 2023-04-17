@@ -1,13 +1,14 @@
-import axios from 'axios';
+import axios from "axios";
 axios.defaults.withCredentials = true;
-const baseURL = process.env.NODE_ENV === "development"
-  ? "http://localhost:3001/"
-  : "http://example.com"
+const baseURL =
+  process.env.NODE_ENV === "development"
+    ? "http://localhost:3001/"
+    : "http://example.com";
 
 const app = axios.create({
-    baseURL,
-    withCredentials: true
-})
+  baseURL,
+  withCredentials: true,
+});
 
 /* 
   The below is required if you want your API to return 
@@ -22,10 +23,8 @@ const app = axios.create({
 
 */
 app.interceptors.response.use(
-  response => (response), 
-  error => (Promise.reject(error))
-)
+  (response) => response,
+  (error) => Promise.reject(error)
+);
 
-export {
-  axios as axiosInstance
-}
+export { axios as axiosInstance };

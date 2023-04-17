@@ -57,7 +57,7 @@ aside {
   transition: 1s all;
   border: none;
   outline: none;
-  background-image: url('./assets/images/m2i8G6H7d3d3H7K9.png');
+  background-image: url("./assets/images/m2i8G6H7d3d3H7K9.png");
   background-size: 10px 10px;
   background-repeat: no-repeat;
   background-position: 10px;
@@ -138,7 +138,7 @@ aside {
 }
 .div .aside ul li {
   list-style: none;
-  margin-left: -.5rem;
+  margin-left: -0.5rem;
   display: flex;
   align-items: center;
 }
@@ -193,7 +193,7 @@ aside {
 .div .header .head h1 {
   font-size: 3rem;
   font-weight: 400;
-  margin-top: .5rem;
+  margin-top: 0.5rem;
 }
 .div .header .head h1 ~ span {
   color: #8c8c8c;
