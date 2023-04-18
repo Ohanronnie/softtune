@@ -27,18 +27,21 @@ app.use(async (req, res, next) => {
   const id = req.cookies.user_id || req.signedCookies.user_id;
   let url = req._parsedUrl.path || req.originalUrl;
   let result = await User.findOne({ _id: id });
-
+  console.log(result);
   if (!url.includes("login") && !url.includes("signup")) {
     console.log(url.includes("login"));
-    if (!req.cookies?.user_id || !req.signedCookies.user_id) {
+    if (!req.cookies?.user_id && !req.signedCookies.user_id) {
+      console.log(78);
       return res.status(500).json({
         error: "You must login first",
       });
     } else if (!result) {
+      console.log(87)
       return res.status(500).json({
         error: "You must login first",
       });
     } else if (result) {
+      console.log("Auth")
       next();
     }
   } else {

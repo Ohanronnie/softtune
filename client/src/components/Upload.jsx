@@ -4,7 +4,7 @@ import podcast from "../assets/images/podcast.svg";
 import song from "../assets/images/music-icon.svg";
 import album from "../assets/images/album.svg";
 import plus from "../assets/images/plus.svg";
-
+import { axiosInstance as axios } from '../utils/axios.js';
 function Upload() {
   const [select, setSelect] = useState({
     selection: null,
@@ -16,6 +16,7 @@ function Upload() {
   const [songState, setSongState] = useState({});
   const [file, setFile] = useState(null);
   const [dataUrl, setDataUrl] = useState(null);
+  const [audio, setMusic] = useState(null);
   const coverImg = useRef(null);
   const artist = useRef(null);
   const title = useRef(null);
@@ -69,24 +70,35 @@ function Upload() {
     let specChar = /[\w\d]+/g;
     e.preventDefault();
     if (!artist.current.value || artist.current.value.length === 0)
-      toggleError(artist, "Artist's name cannot be blank");
+      return toggleError(artist, "Artist's name cannot be blank");
     else if (artist.current.value.length < 3)
-      toggleError(artist, "Artist's name cannot be lesser than 3");
+      return toggleError(artist, "Artist's name cannot be lesser than 3");
     else if (!specChar.test(artist.current.value.toLowerCase()))
-      toggleError(artist, "Artist's name cannot contain special characters");
+      return toggleError(artist, "Artist's name cannot contain special characters");
     else artist.current.style.border = "0px solid white";
     if (!title.current.value || title.current.value.length === 0)
-      toggleError(artist, "Title cannot be blank");
+      return toggleError(artist, "Title cannot be blank");
     else title.current.style.border = "0px solid white";
     if (!description.current.value || description.current.value.length === 0)
-      toggleError(description, "Description cannot be blank");
+      return toggleError(description, "Description cannot be blank");
     else description.current.style.border = "0px solid white";
-    if (!songState.genre) toggleError(genre, "You must select a genre");
-    else genre.current.style.borderWidth = "0px";
-    if (!file) alert("You must select an art/image");
+    if (!songState.genre) return toggleError(genre, "You must select a genre");
+    else  genre.current.style.borderWidth = "0px";
+    if (!file) return alert("You must select an art/image");
     if (music.current.files.length === 0)
-      toggleError(music, "You must select an music");
+      return toggleError(music, "You must select an music");
     else music.current.style.border = "0px solid white";
+    let keys = Object.keys(songState);
+    let formData = new FormData();
+    for(let i = 0; i<keys.length; i++){
+      formData.append(keys[i],songState[keys[i]])
+    };
+    formData.append('audio',audio);
+    formData.append('image',file);
+    axios.post('/upload',formData,{ headers:{
+      "enctype": "multipart/form-data",
+      "Content-Type": "multipart/form-data"
+    }})
   };
   const UploadType = () => {
     return (
@@ -420,6 +432,7 @@ function Upload() {
           ref={music}
           name="music"
           placeholder="name of the music"
+          onChange={(e) => setMusic(e.target.files[0])}
           accept="audio/*"
           required={false}
         />
