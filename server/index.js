@@ -9,11 +9,14 @@ import home from "./routes/home.js";
 import register from "./routes/register.js";
 import multer from "multer";
 import upload from "./routes/upload.js";
+import content from "./routes/content.js";
+import render from "./routes/render.js";
 dotenv.config();
 mongoose.connect(process.env.MONGOURL, {
   useUnifiedTopology: true,
   useNewUrlParser: true,
 });
+console.log('it is working yeah');
 const app = express();
 const PORT = process.env.PORT || 3001;
 app.use(cookieparser("tp07089314662"));
@@ -26,9 +29,11 @@ app.use(
 app.use(async (req, res, next) => {
   const id = req.cookies.user_id || req.signedCookies.user_id;
   let url = req._parsedUrl.path || req.originalUrl;
-  let result = await User.findOne({ _id: id });
+  let result = await User.findOne({
+    _id: id
+  });
   console.log(result);
-  if (!url.includes("login") && !url.includes("signup")) {
+  if (url.includes("register") || !url.includes('music')) {
     console.log(url.includes("login"));
     if (!req.cookies?.user_id && !req.signedCookies.user_id) {
       console.log(78);
@@ -48,11 +53,15 @@ app.use(async (req, res, next) => {
     next();
   }
 });
-app.use(bodyparser.urlencoded({ extended: false }));
+app.use(bodyparser.urlencoded({
+  extended: false
+}));
 app.use(express.json());
 app.use("/", home);
 app.use("/register", register);
 app.use("/upload", upload);
+app.use('/music', content);
+app.use('/render', render)
 app.listen(PORT, () => {
   console.log(`App is running on port ${PORT}`);
 });

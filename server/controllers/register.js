@@ -126,13 +126,15 @@ class Register {
     const list = await User.find({}).select("username");
     console.log("Got a request in userlist");
     console.log(list);
-    res.status(200).json(list.map((e) => e.username));
+    if (list) res.status(200).json(list.map((e) => e.username));
+    else if (!list) res.status(200).json([]);
   }
   static async mailList(req, res) {
     const list = await User.find({}).select("mail");
     console.log("Got a request in maillist");
     console.log(list);
-    res.status(200).json(list.map((e) => e.mail));
+    if (list) res.status(200).json(list.map((e) => e.mail));
+    else if (!list) res.status(200).json([]);
   }
 }
 export default Register;

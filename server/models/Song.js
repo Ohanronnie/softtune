@@ -32,20 +32,28 @@ const musicSchema = new mongoose.Schema({
     type: String,
     default: "",
   },
+  genre: {
+   type: String,
+   required: true
+  },
   details: {
     streams: {
-      type: String,
+      type: Number,
       default: 0,
     },
     rating: {
-      type: String,
+      type: Number,
       default: 0,
     },
     popular: {
-      type: String,
+      type: Number,
       default: 0,
-    },
+    }
   },
+  createdAt: {
+    type: Date,
+    default: Date.now()
+ }
 });
 const Song = mongoose.model("Song", musicSchema);
 export default Song;
