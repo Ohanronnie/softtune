@@ -8,11 +8,11 @@ export async function auth(location) {
   } else {
     try {
       let res = await axios.get("/res");
+
     } catch (error) {
-      if (error.res.statusCode === 500) {
+      if (error.response.status === 500) {
         return error;
       }
-      return error;
     }
   }
 }

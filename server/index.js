@@ -33,7 +33,7 @@ app.use(async (req, res, next) => {
     _id: id
   });
   console.log(result);
-  if (url.includes("register") || !url.includes('music')) {
+  if (!url.includes("register") || !url.includes('music')) {
     console.log(url.includes("login"));
     if (!req.cookies?.user_id && !req.signedCookies.user_id) {
       console.log(78);

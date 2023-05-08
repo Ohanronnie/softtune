@@ -25,4 +25,5 @@ client/yarn-debug.log*
 client/yarn-error.log*
 server/.env
 server/*/.env
+server/assets/*/*
 !/.gitignore
